@@ -1,0 +1,1883 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tejtw.github.io/TQuantLab/lecture/get_universe%E8%AA%AA%E6%98%8E/">
+      
+      
+        <link rel="prev" href="../Universe%20Analysis%EF%BC%8Dusing%20get_universe/">
+      
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>get_universe說明 - TQuant Lab</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#get_universe" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="TQuant Lab" class="md-header__button md-logo" aria-label="TQuant Lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TQuant Lab
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              get_universe說明
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_3" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_3">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_4">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  TQuant-Lab
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Data%20collection%20%283%29/" class="md-tabs__link">
+          
+  
+    
+  
+  Lecture
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="TQuant Lab" class="md-nav__button md-logo" aria-label="TQuant Lab" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    TQuant Lab
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TQuant-Lab
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Lecture
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Lecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20collection%20%283%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Collection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install%20TQuant%20Lab%20%283%29/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TQuant Lab 安裝教學
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Simple%20Algorithm-TargetPercentPipeAlgo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Target Percent Pipeline Algorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TSMC%20buy%20and%20hold%20strategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TSMC 買進持有策略
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Universe%20Analysis%EF%BC%8Dusing%20get_universe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Universe Analysis－using get universe
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    get_universe說明
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    get_universe說明
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-and-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import and Setting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_universe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_universe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_universe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ziplinesourcestej_api_dataget_universe" class="md-nav__link">
+    <span class="md-ellipsis">
+      zipline.sources.TEJ_Api_Data.get_universe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkt-mkt_bd_cmkt_bd_e" class="md-nav__link">
+    <span class="md-ellipsis">
+      市場別（mkt） 與板塊別（mkt_bd_c、mkt_bd_e）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-get_universe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import get_universe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case1 取曾經在上市一般板+上櫃一般板的證券（不限於普通股）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case2 取曾經在證券交易所／櫃買中心掛牌的證券（不限於普通股）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="case2 取曾經在證券交易所／櫃買中心掛牌的證券（不限於普通股）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      取曾經在證券交易所掛牌的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      取曾經在櫃買中心掛牌的證券
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case3-fky" class="md-nav__link">
+    <span class="md-ellipsis">
+      case3 取曾經上市+上櫃的普通股（不含F股或KY股）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case4-m2324" class="md-nav__link">
+    <span class="md-ellipsis">
+      case4 取子產業別曾經為"M2324 半導體業"的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case5-m2324-semiconductorm2325-computer-and-peripheral-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      case5 取子產業別曾經為"M2324 Semiconductor"&amp;"M2325 Computer and Peripheral Equipment"的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case6-etffky" class="md-nav__link">
+    <span class="md-ellipsis">
+      case6 取證券種類為"ETF"及"普通股"（不含F股或KY股）且掛牌於證券交易所的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case7-ix000250" class="md-nav__link">
+    <span class="md-ellipsis">
+      case7 取曾經為"IX0002"（台灣50指數）成份股的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case8-m1100-ix0006" class="md-nav__link">
+    <span class="md-ellipsis">
+      case8 取主產業別曾經為"M1100 水泥工業"且為"IX0006"（台灣高股息指數）成份股的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case9-fky" class="md-nav__link">
+    <span class="md-ellipsis">
+      case9 取非金融業的普通股（不含F股或KY股）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#import-and-setting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import and Setting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_universe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      get_universe
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_universe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ziplinesourcestej_api_dataget_universe" class="md-nav__link">
+    <span class="md-ellipsis">
+      zipline.sources.TEJ_Api_Data.get_universe
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Return type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    <span class="md-ellipsis">
+      Note
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mkt-mkt_bd_cmkt_bd_e" class="md-nav__link">
+    <span class="md-ellipsis">
+      市場別（mkt） 與板塊別（mkt_bd_c、mkt_bd_e）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-get_universe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import get_universe
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case1" class="md-nav__link">
+    <span class="md-ellipsis">
+      case1 取曾經在上市一般板+上櫃一般板的證券（不限於普通股）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case2" class="md-nav__link">
+    <span class="md-ellipsis">
+      case2 取曾經在證券交易所／櫃買中心掛牌的證券（不限於普通股）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="case2 取曾經在證券交易所／櫃買中心掛牌的證券（不限於普通股）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      取曾經在證券交易所掛牌的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      取曾經在櫃買中心掛牌的證券
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case3-fky" class="md-nav__link">
+    <span class="md-ellipsis">
+      case3 取曾經上市+上櫃的普通股（不含F股或KY股）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case4-m2324" class="md-nav__link">
+    <span class="md-ellipsis">
+      case4 取子產業別曾經為"M2324 半導體業"的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case5-m2324-semiconductorm2325-computer-and-peripheral-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      case5 取子產業別曾經為"M2324 Semiconductor"&amp;"M2325 Computer and Peripheral Equipment"的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case6-etffky" class="md-nav__link">
+    <span class="md-ellipsis">
+      case6 取證券種類為"ETF"及"普通股"（不含F股或KY股）且掛牌於證券交易所的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case7-ix000250" class="md-nav__link">
+    <span class="md-ellipsis">
+      case7 取曾經為"IX0002"（台灣50指數）成份股的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case8-m1100-ix0006" class="md-nav__link">
+    <span class="md-ellipsis">
+      case8 取主產業別曾經為"M1100 水泥工業"且為"IX0006"（台灣高股息指數）成份股的證券
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case9-fky" class="md-nav__link">
+    <span class="md-ellipsis">
+      case9 取非金融業的普通股（不含F股或KY股）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="get_universe">get_universe說明</h1>
+<h2 id="import-and-setting">Import and Setting</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">datetime</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">tejapi</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># set tej_key and base</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_KEY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;your key&quot;</span> 
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TEJAPI_BASE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;https://api.tej.com.tw&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># set date</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">start</span><span class="o">=</span><span class="s1">&#39;2023-01-01&#39;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">end</span><span class="o">=</span><span class="s1">&#39;2023-10-24&#39;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kn">from</span> <span class="nn">logbook</span> <span class="kn">import</span> <span class="n">Logger</span><span class="p">,</span> <span class="n">StderrHandler</span><span class="p">,</span> <span class="n">INFO</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">log_handler</span> <span class="o">=</span> <span class="n">StderrHandler</span><span class="p">(</span><span class="n">format_string</span><span class="o">=</span><span class="s1">&#39;[{record.time:%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S.</span><span class="si">%f</span><span class="s1">}]: &#39;</span> <span class="o">+</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                            <span class="s1">&#39;</span><span class="si">{record.level_name}</span><span class="s1">: </span><span class="si">{record.func_name}</span><span class="s1">: </span><span class="si">{record.message}</span><span class="s1">&#39;</span><span class="p">,</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                            <span class="n">level</span><span class="o">=</span><span class="n">INFO</span><span class="p">)</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="n">log_handler</span><span class="o">.</span><span class="n">push_application</span><span class="p">()</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">log</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="s1">&#39;get_universe&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="get_universe_1">get_universe</h2>
+<p>用來取得某一段時間中符合特定條件的股票池（<font color=DeepPink>使用此函數會消耗API流量</font>）。</p>
+<h3 id="ziplinesourcestej_api_dataget_universe"><strong>zipline.sources.TEJ_Api_Data.<font color=DeepPink>get_universe</font></strong></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">(</span><span class="n">start</span><span class="p">,</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a> <span class="n">end</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a> <span class="n">trading_calendar</span> <span class="o">=</span> <span class="n">get_calendar</span><span class="p">(</span><span class="s1">&#39;TEJ_XTAI&#39;</span><span class="p">),</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<!-- <table><tr><td bgcolor=green>Parameters</td></tr></table> -->
+
+<h3 id="parameters">Parameters</h3>
+<hr />
+<ul>
+<li><strong>start</strong>(<em>datetime or str</em>)－起始日。get_universe將會回傳start至end時間段內符合條件的樣本。</li>
+<li><strong>end</strong>(<em>datetime or str, optional</em>)－迄日，預設為程式執行當天日期。get_universe將會回傳start至end時間段內符合條件的樣本。</li>
+<li><strong>trading_calendar</strong>(<em>TradingCalendar, optional</em>)－設置交易日曆。預設是<code>get_calendar('TEJ_XTAI')</code>。</li>
+<li><strong>available kwargs properties（至少需要指定一個，若沒指定則返回全樣本）</strong></li>
+<li><strong>mkt</strong>(<em>list or str</em>)－市場別。<ul>
+<li>valid mkt：<code>['TWSE', 'OTC']</code>。</li>
+<li>若在<strong>證券交易所</strong>掛牌，註記為「TWSE」；若在<strong>櫃買中心</strong>掛牌，註記為「OTC」。</li>
+<li><strong>市場別（mkt）</strong> 、<strong>板塊別（mkt_bd_c、mkt_bd_e）</strong>的概念請參考以下說明：<a href="#mktandmkt_bd">市場別（mkt） 與板塊別（mkt_bd_c、mkt_bd_e）</a>。</li>
+</ul>
+</li>
+<li><strong>mkt_bd_c</strong>(<em>list or str</em>)－板塊別(中)。<ul>
+<li>valid mkt_bd_c：<code>['上市一般版', '上櫃一般版', '創新版']</code>。</li>
+<li>若在<strong>上市一般板</strong>，註記為「上市一般版」；若在<strong>上市創新板</strong>，註記為「創新版」；若在<strong>上櫃一般板</strong>，註記為「上櫃一般版」。</li>
+</ul>
+</li>
+<li><strong>mkt_bd_e</strong>(<em>list or str</em>)－板塊別(英)。<ul>
+<li>valid mkt_bd_e：<code>['TSE', 'OTC', 'TIB']</code>。</li>
+<li>若在<strong>上市一般板</strong>，註記為「TSE」；若在<strong>上市創新板</strong>，註記為「TIB」；若在<strong>上櫃一般板</strong>，註記為「OTC」。</li>
+</ul>
+</li>
+<li><strong>stktp_c</strong>(<em>list or str</em>)－證券種類(中)。<ul>
+<li>valid stktp_c：<code>['指數', '普通股-海外', '普通股', '特別股', '封閉型基金', 'ETF', 'REIT', '國外ETF', '台灣存託憑證']</code>。</li>
+<li><code>'普通股-海外'</code>：僅包含F股或KY股。<code>'普通股'</code>：不含F股或KY股。若同時想取得所有第一上市的普通股，請使用stktp_c=<code>['普通股-海外', '普通股']</code>。</li>
+<li><code>'ETF'</code>：僅包含投資於國內標的的ETF。<code>'國外ETF'</code>：僅包含投資於國外標的的ETF。若同時想取得所有ETF，請使用stktp_c=<code>['ETF', '國外ETF']</code>。</li>
+</ul>
+</li>
+<li><strong>stktp_e</strong>(<em>list or str</em>)－證券種類(英)。<ul>
+<li>valid stktp_e：<code>['Index', 'Common Stock-Foreign', 'Common Stock', 'Preferred Stock', 'Close End Fund', 'ETF', 'REIT', 'Foreign ETF', 'TDR']</code>。</li>
+<li><code>'Common Stock-Foreign'</code>：僅包含F股或KY股。<code>'Common Stock'</code>：不含F股或KY股。若同時想取得所有第一上市的普通股，請使用stktp_e=<code>['Common Stock-Foreign', 'Common Stock']</code>。</li>
+<li><code>'ETF'</code>：僅包含投資於國內標的的ETF。<code>'Foreign ETF'</code>：僅包含投資於國外標的的ETF。若同時想取得所有ETF，請使用stktp_c=<code>['ETF', 'Foreign ETF']</code>。</li>
+</ul>
+</li>
+<li>
+<p><strong>main_ind_c</strong>(<em>list or str</em>)－主產業別(中)。（請輸入完整字串，例如：'M1100 水泥工業'）
+    <details>
+    <summary><font color=Blue>點選查看valid main_ind_c</font>：</summary>
+    <pre></p>
+<ul>
+<li>M1100 水泥工業</li>
+<li>M1200 食品工業</li>
+<li>M1300 塑膠工業</li>
+<li>M1400 紡織纖維</li>
+<li>M1500 電機機械</li>
+<li>M1600 電器電纜</li>
+<li>M1700 化學生技醫療</li>
+<li>M1800 玻璃陶瓷</li>
+<li>M1900 造紙工業</li>
+<li>M2000 鋼鐵工業</li>
+<li>M2100 橡膠工業</li>
+<li>M2200 汽車工業</li>
+<li>M2300 電子工業</li>
+<li>M2500 建材營造</li>
+<li>M2600 航運業</li>
+<li>M2700 觀光餐旅</li>
+<li>M2800 金融業</li>
+<li>M2900 貿易百貨</li>
+<li>M3000 証券</li>
+<li>M3500 綠能環保</li>
+<li>M3600 數位雲端</li>
+<li>M3700 運動休閒</li>
+<li>M3800 居家生活</li>
+<li>M9700 油電燃氣業</li>
+<li>M9900 其他</li>
+<li>OTC12 OTC 食品工業</li>
+<li>OTC13 OTC 塑膠工業</li>
+<li>OTC14 OTC 紡織纖維</li>
+<li>OTC15 OTC 電機機械</li>
+<li>OTC16 OTC 電器電纜</li>
+<li>OTC17 OTC 化學生技</li>
+<li>OTC18 OTC 玻璃</li>
+<li>OTC20 OTC 鋼鐵工業</li>
+<li>OTC21 OTC 橡膠類</li>
+<li>OTC22 OTC 汽車類</li>
+<li>OTC23 OTC 電子類</li>
+<li>OTC25 OTC 建材營造</li>
+<li>OTC26 OTC 航運業</li>
+<li>OTC27 OTC 觀光餐旅</li>
+<li>OTC28 OTC 金融業</li>
+<li>OTC29 OTC 百貨類</li>
+<li>OTC30 OTC 證券類</li>
+<li>OTC32 文化創意業</li>
+<li>OTC33 OTC 農業科技</li>
+<li>OTC34 OTC 電子商務</li>
+<li>OTC35 OTC 綠能環保</li>
+<li>OTC36 OTC 數位雲端</li>
+<li>OTC37 OTC 運動休閒</li>
+<li>OTC38 OTC 居家生活</li>
+<li>OTC89 OTC 其它</li>
+<li>OTC97 OTC 油電燃氣業</li>
+<li>金融與證券業</li>
+<li>一般產業 </li>
+</ul>
+<p></pre>
+</details></p>
+</li>
+<li>
+<p><strong>main_ind_e</strong>(<em>list or str</em>)－主產業別(英)。（請輸入完整字串，例如：'M1100 Cement'）
+    <details>
+    <summary><font color=Blue>點選查看valid main_ind_e</font>：</summary>
+    <pre></p>
+<ul>
+<li>M1100 Cement</li>
+<li>M1200 Foods</li>
+<li>M1300 Plastics</li>
+<li>M1400 Textiles</li>
+<li>M1500 Electric Machinery</li>
+<li>M1600 Electrical and Cable</li>
+<li>M1700 Chemical Biotechnology &amp; Medical Care</li>
+<li>M1800 Glass and Ceramics</li>
+<li>M1900 Paper and Pulp</li>
+<li>M2000 Iron and Steel</li>
+<li>M2100 Rubber</li>
+<li>M2200 Automobile</li>
+<li>M2300 Electronics</li>
+<li>M2500 Building Material and Construction</li>
+<li>M2600 Shipping and Transportation</li>
+<li>M2700 Tourism</li>
+<li>M2800 Financial Industry</li>
+<li>M2900 Trading and Consumers' Goods</li>
+<li>M3000 Securities</li>
+<li>M3500 TSE Green Energy and Environmental Services</li>
+<li>M3600 TSE Digital and Cloud Services</li>
+<li>M3700 TSE Sports and Leisure</li>
+<li>M3800 TSE Household</li>
+<li>M9700 Oil Gas and Electricity</li>
+<li>M9900 Others</li>
+<li>OTC12 OTC Foods</li>
+<li>OTC13 OTC Plastic</li>
+<li>OTC14 OTC Textile</li>
+<li>OTC15 OTC Electronical</li>
+<li>OTC16 OTC Wire &amp; Cable</li>
+<li>OTC17 OTC Chemical &amp; Biotech</li>
+<li>OTC18 OTC Glass</li>
+<li>OTC20 OTC Steel</li>
+<li>OTC21 OTC Rubbers</li>
+<li>OTC22 OTC Automobile</li>
+<li>OTC23 OTC Electronic</li>
+<li>OTC25 OTC Construction</li>
+<li>OTC26 OTC Transporation</li>
+<li>OTC27 OTC Tourism</li>
+<li>OTC28 OTC Banking</li>
+<li>OTC29 OTC Retailing</li>
+<li>OTC30 OTC Securities</li>
+<li>OTC32 Cultural &amp; Creative Industry</li>
+<li>OTC33 OTC Agricultural Science and Technology</li>
+<li>OTC34 OTC E-commerce</li>
+<li>OTC35 OTC Green Energy and Environmental Services</li>
+<li>OTC36 OTC Digital and Cloud Services</li>
+<li>OTC37 OTC Sports and Leisure</li>
+<li>OTC38 OTC Household</li>
+<li>OTC89 OTC Others</li>
+<li>OTC97 OTC Gas and Electricity Industry</li>
+<li>Financial and Securities Industry</li>
+<li>General Industry </li>
+</ul>
+<p></pre>
+</details></p>
+</li>
+<li>
+<p><strong>sub_ind_c</strong>(<em>list or str</em>)－子產業別(中)。（請輸入完整字串，例如：'M1721 化學工業'）
+    <details>
+    <summary><font color=Blue>點選查看valid sub_ind_c</font>：</summary>
+    <pre></p>
+<ul>
+<li>M1721 化學工業</li>
+<li>M1722 生技醫療業</li>
+<li>M2324 半導體業</li>
+<li>M2325 電腦及週邊設備業</li>
+<li>M2326 光電業</li>
+<li>M2327 通信網路業</li>
+<li>M2328 電子零組件</li>
+<li>M2329 電子通路業</li>
+<li>M2330 資訊服務業</li>
+<li>M2331 其他電子業</li>
+<li>O1721 OTC 化學工業</li>
+<li>O1722 OTC 生技醫療</li>
+<li>O2324 OTC 半導體業</li>
+<li>O2325 OTC 電腦及週邊設備業</li>
+<li>O2326 OTC 光電業</li>
+<li>O2327 OTC 通信網路業</li>
+<li>O2328 OTC 電子零組件</li>
+<li>O2329 OTC 電子通路業</li>
+<li>O2330 OTC 資訊服務業</li>
+<li>O2331 OTC 其他電子業</li>
+</ul>
+<p></pre>
+</details></p>
+</li>
+<li>
+<p><strong>sub_ind_e</strong>(<em>list or str</em>)－子產業別(英)。（請輸入完整字串，例如：'M1721 Chemical'）
+    <details>
+    <summary><font color=Blue>點選查看valid sub_ind_e</font>：</summary>
+    <pre></p>
+<ul>
+<li>M1721 Chemical</li>
+<li>M1722 Biotechnology and Medical Care</li>
+<li>M2324 Semiconductor</li>
+<li>M2325 Computer and Peripheral Equipment</li>
+<li>M2326 Optoelectronic</li>
+<li>M2327 Communications and Internet</li>
+<li>M2328 Electronic Parts and Components</li>
+<li>M2329 Electronic Products Distribution</li>
+<li>M2330 Information Service</li>
+<li>M2331 Other Electronic</li>
+<li>O1721 OTC Chemical Industry</li>
+<li>O1722 OTC Biotechnology and Medical Care Industry</li>
+<li>O2324 OTC Semiconductor Industry</li>
+<li>O2325 OTC Computer and Peripheral Equipment Industry</li>
+<li>O2326 OTC Optoelectronic Industry</li>
+<li>O2327 OTC Communications and Internet Industry</li>
+<li>O2328 OTC Electronic Parts and Components Industry</li>
+<li>O2329 OTC Electronic Products Distribution Industry</li>
+<li>O2330 OTC Information Service Industry</li>
+<li>O2331 OTC Other Electronic</li>
+</ul>
+<p></pre>
+</details></p>
+</li>
+<li>
+<p><strong>idx_id</strong>(<em>list or str</em>)－指數名稱。（請輸入指數就好，後面的中文不需輸入，例如：'IX0001'）</p>
+<p><details>
+<summary><font color=Blue>點選查看valid idx_id</font>：</summary>
+<pre> </p>
+<ul>
+<li>IX0001    加權指數</li>
+<li>IX0002    台灣50指數</li>
+<li>IX0003    台灣中型指數</li>
+<li>IX0006    台灣高股息指數</li>
+<li>IX0010    水泥工業類指數</li>
+<li>IX0011    食品工業類指數</li>
+<li>IX0012    塑膠工業類指數</li>
+<li>IX0016    紡織纖維類指數</li>
+<li>IX0017    電機機械類指數</li>
+<li>IX0018    電器電纜類指數</li>
+<li>IX0019    化學生技醫療類指數</li>
+<li>IX0020    化學工業指數</li>
+<li>IX0021    生技醫療指數</li>
+<li>IX0022    玻璃陶瓷類指數</li>
+<li>IX0023    造紙工業類指數</li>
+<li>IX0024    鋼鐵工業類指數</li>
+<li>IX0025    橡膠類指數</li>
+<li>IX0026    汽車工業類指數</li>
+<li>IX0027    電子類指數</li>
+<li>IX0028    半導體業指數</li>
+<li>IX0029    電腦及週邊設備業指數</li>
+<li>IX0030    光電業指數</li>
+<li>IX0031    通信網路業指數</li>
+<li>IX0032    電子零組件業指數</li>
+<li>IX0033    電子通路業指數</li>
+<li>IX0034    資訊服務業指數</li>
+<li>IX0035    其他電子業指數</li>
+<li>IX0036    建材營造類指數</li>
+<li>IX0037    航運業類指數</li>
+<li>IX0038    觀光事業類指數</li>
+<li>IX0039    金融保險類指數</li>
+<li>IX0040    貿易百貨類指數</li>
+<li>IX0041    油電燃氣業指數</li>
+<li>IX0042    其他類指數</li>
+<li>IX0043    OTC 指數</li>
+<li>IX0044    OTC 紡織纖維類</li>
+<li>IX0045    OTC 電機機械類</li>
+<li>IX0046    OTC 鋼鐵類</li>
+<li>IX0047    OTC 電子類</li>
+<li>IX0048    OTC 營造建材類</li>
+<li>IX0049    OTC 航運類</li>
+<li>IX0050    OTC 觀光類指數</li>
+<li>IX0051    OTC 化學工業指數</li>
+<li>IX0052    OTC 生技醫療指數</li>
+<li>IX0053    OTC 半導體業指數</li>
+<li>IX0054    OTC 電腦及週邊設備業指數</li>
+<li>IX0055    OTC 光電業指數</li>
+<li>IX0056    OTC 通信網路業指數</li>
+<li>IX0057    OTC 電子零組件指數</li>
+<li>IX0058    OTC 電子通路業指數</li>
+<li>IX0059    OTC 資訊服務業指數</li>
+<li>IX0060    富櫃五十指數</li>
+<li>IX0063    線上遊戲指數</li>
+<li>IX0075    文化創意業指數</li>
+<li>IX0082    臺灣證券交易所公司治理100 指數</li>
+<li>IX0085    櫃買治理</li>
+<li>IX0099    其他電子業指數</li>
+<li>IX0118    櫃買富櫃200指數</li>
+</ul>
+<p></pre>
+</details></p>
+</li>
+</ul>
+<h3 id="returns">Returns</h3>
+<hr />
+<p>List of symbols.</p>
+<h3 id="return-type">Return type</h3>
+<hr />
+<p><em>list</em></p>
+<h3 id="note">Note</h3>
+<hr />
+<ul>
+<li><code>main_ind_c</code>的特殊產業</li>
+<li>main_ind_c=<code>'金融與證券業'</code>：<strong>屬於</strong>以下4種產業的所有公司<ul>
+<li>M2800 金融業</li>
+<li>OTC28 OTC 金融業</li>
+<li>M3000 証券</li>
+<li>OTC30 OTC 證券類</li>
+</ul>
+</li>
+<li>main_ind_c=<code>'一般產業'</code>：<strong>非</strong>以下4種產業的所有公司<ul>
+<li>M2800 金融業</li>
+<li>OTC28 OTC 金融業</li>
+<li>M3000 証券</li>
+<li>OTC30 OTC 證券類</li>
+</ul>
+</li>
+<li><code>main_ind_e</code>的特殊產業</li>
+<li>main_ind_e=<code>'Financial and Securities Industry'</code>：<strong>屬於</strong>以下4種產業的所有公司<ul>
+<li>M2800 Financial Industry</li>
+<li>OTC30 OTC Securities</li>
+<li>M3000 Securities</li>
+<li>OTC28 OTC Banking</li>
+</ul>
+</li>
+<li>main_ind_e=<code>'General Industry'</code>：<strong>非</strong>以下4種產業的所有公司<ul>
+<li>M2800 Financial Industry</li>
+<li>OTC30 OTC Securities</li>
+<li>M3000 Securities</li>
+<li>OTC28 OTC Banking</li>
+</ul>
+</li>
+</ul>
+<p><span id="mktandmkt_bd"></span></p>
+<h2 id="mkt-mkt_bd_cmkt_bd_e">市場別（mkt） 與板塊別（mkt_bd_c、mkt_bd_e）</h2>
+<hr />
+<p>以 <strong>'普通股'</strong> 為例（不含F股或KY股）：</p>
+<ul>
+<li><strong>'普通股'</strong> （<strong>stktp_c='普通股'</strong>）：包含在<strong>證券交易所（mkt='TWSE'）掛牌的普通股</strong> 與在<strong>櫃買中心（mkt='OTC'）掛牌的普通股</strong>。</li>
+<li>在<strong>證券交易所掛牌的普通股</strong>：包含<strong>上市一般板（mkt_bd_e='TSE'、mkt_bd_c='上市一般版'）</strong> 與 <strong>上市創新板（mkt_bd_e='TIB'、mkt_bd_c='創新版'）</strong>。</li>
+<li>
+<p>在<strong>櫃買中心掛牌的普通股</strong>：包含<strong>上櫃一般板（mkt_bd_e='OTC'、mkt_bd_c='上櫃一般版'）</strong>，不含興櫃。</p>
+</li>
+<li>
+<p>統整上述關係：</p>
+<blockquote>
+<p><img alt="get_universe.png" src="get_universe.png" /></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="import-get_universe">Import get_universe</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">zipline.sources.TEJ_Api_Data</span> <span class="kn">import</span> <span class="n">get_universe</span>
+</code></pre></div>
+<p><span id="menu"></span></p>
+<h2 id="examples">Examples</h2>
+<p>包含以下九個範例：
+1. <a href="#case1">case1 取曾經在上市一般板+上櫃一般板的證券</a>
+2. <a href="#case2">case2 取曾經在證券交易所／櫃買中心掛牌的證券</a>
+3. <a href="#case3">case3 取曾經上市+上櫃的普通股</a>
+4. <a href="#case4">case4 取子產業別曾經為"M2324 半導體業"的證券</a>
+5. <a href="#case5">case5 取子產業別曾經為"M2324 Semiconductor"&amp;"M2325 Computer and Peripheral Equipment"的證券</a>
+6. <a href="#case6">case6 取證券種類為"ETF"及"普通股"且掛牌於證券交易所的證券</a>
+7. <a href="#case7">case7 取曾經為"IX0002"（台灣50指數）成份股的證券</a>
+8. <a href="#case8">case8 取主產業別曾經為"M1100 水泥工業"且為"IX0006"（台灣高股息指數）成份股的證券</a>
+9. <a href="#case9">case9 取非金融業的普通股</a></p>
+<p><span id="case1"></span></p>
+<h3 id="case1">case1 取曾經在上市一般板+上櫃一般板的證券（不限於普通股）</h3>
+<p>這樣的使用方式不會取出<code>mkt_bd_e</code>=TIB（創新板）的證券</p>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">mkt_bd_e</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TSE&#39;</span><span class="p">,</span><span class="s1">&#39;OTC&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:34:41.475876]: INFO: get_universe_TW: Filters：{&#39;mkt_bd_e&#39;: [&#39;TSE&#39;, &#39;OTC&#39;]}
+
+
+Currently used TEJ API key call quota 37/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 110039/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;0050&#39;,
+ &#39;0051&#39;,
+ &#39;0052&#39;,
+ &#39;0053&#39;,
+ &#39;0055&#39;,
+ &#39;0056&#39;,
+ &#39;0057&#39;,
+ &#39;0061&#39;,
+ &#39;006201&#39;,
+ &#39;006203&#39;]
+</code></pre></div>
+<p><span id="case2"></span></p>
+<h3 id="case2">case2 取曾經在證券交易所／櫃買中心掛牌的證券（不限於普通股）</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<h4 id="_1">取曾經在證券交易所掛牌的證券</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">mkt</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TWSE&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:34:54.167604]: INFO: get_universe_TW: Filters：{&#39;mkt&#39;: [&#39;TWSE&#39;]}
+
+
+Currently used TEJ API key call quota 38/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 565251/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;0050&#39;,
+ &#39;0051&#39;,
+ &#39;0052&#39;,
+ &#39;0053&#39;,
+ &#39;0055&#39;,
+ &#39;0056&#39;,
+ &#39;0057&#39;,
+ &#39;0061&#39;,
+ &#39;006203&#39;,
+ &#39;006204&#39;]
+</code></pre></div>
+<h4 id="_2">取曾經在櫃買中心掛牌的證券</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">mkt</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;OTC&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:35:25.138684]: INFO: get_universe_TW: Filters：{&#39;mkt&#39;: [&#39;OTC&#39;]}
+
+
+Currently used TEJ API key call quota 39/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 837204/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;006201&#39;,
+ &#39;00679B&#39;,
+ &#39;00687B&#39;,
+ &#39;00694B&#39;,
+ &#39;00695B&#39;,
+ &#39;00696B&#39;,
+ &#39;00697B&#39;,
+ &#39;00718B&#39;,
+ &#39;00719B&#39;,
+ &#39;00720B&#39;]
+</code></pre></div>
+<p><span id="case3"></span></p>
+<h3 id="case3-fky">case3 取曾經上市+上櫃的普通股（不含F股或KY股）</h3>
+<ul>
+<li>
+<p>case1與case2取出的證券<strong>不限於普通股</strong>，若<strong>僅想取出普通股</strong>（不含F股或KY股），則可以新增<code>stktp_c=['普通股']</code>的條件。</p>
+</li>
+<li>
+<p>以下兩種方式皆能取得曾經上市+上櫃的普通股（不含F股或KY股）：</p>
+</li>
+<li><code>get_universe(start, end, mkt=['TWSE','OTC'], stktp_c=['普通股'])</code></li>
+<li>
+<p><code>get_universe(start, end, mkt_bd_e=['TSE','OTC','TIB'], mkt=['TWSE','OTC'], stktp_c=['普通股'])</code></p>
+</li>
+<li>
+<p>若需要排除<strong>上市創新板（mkt_bd='TIB'）</strong> 的普通股（不含F股或KY股），可使用：</p>
+</li>
+<li><code>get_universe(start, end, mkt_bd_e=['TSE','OTC'], mkt=['TWSE','OTC'], stktp_c=['普通股'])</code></li>
+</ul>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">mkt</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TWSE&#39;</span><span class="p">,</span><span class="s1">&#39;OTC&#39;</span><span class="p">],</span> <span class="n">stktp_c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;普通股&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:35:34.084292]: INFO: get_universe_TW: Filters：{&#39;mkt&#39;: [&#39;TWSE&#39;, &#39;OTC&#39;], &#39;stktp_c&#39;: [&#39;普通股&#39;]}
+
+
+Currently used TEJ API key call quota 40/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1021182/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;1101&#39;,
+ &#39;1102&#39;,
+ &#39;1103&#39;,
+ &#39;1104&#39;,
+ &#39;1108&#39;,
+ &#39;1109&#39;,
+ &#39;1110&#39;,
+ &#39;1201&#39;,
+ &#39;1203&#39;,
+ &#39;1210&#39;]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">mkt_bd_e</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TSE&#39;</span><span class="p">,</span><span class="s1">&#39;OTC&#39;</span><span class="p">,</span><span class="s1">&#39;TIB&#39;</span><span class="p">],</span> <span class="n">mkt</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TWSE&#39;</span><span class="p">,</span><span class="s1">&#39;OTC&#39;</span><span class="p">],</span> <span class="n">stktp_c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;普通股&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:35:47.903112]: INFO: get_universe_TW: Filters：{&#39;mkt_bd_e&#39;: [&#39;TSE&#39;, &#39;OTC&#39;, &#39;TIB&#39;], &#39;mkt&#39;: [&#39;TWSE&#39;, &#39;OTC&#39;], &#39;stktp_c&#39;: [&#39;普通股&#39;]}
+
+
+Currently used TEJ API key call quota 41/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1342349/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;1101&#39;,
+ &#39;1102&#39;,
+ &#39;1103&#39;,
+ &#39;1104&#39;,
+ &#39;1108&#39;,
+ &#39;1109&#39;,
+ &#39;1110&#39;,
+ &#39;1201&#39;,
+ &#39;1203&#39;,
+ &#39;1210&#39;]
+</code></pre></div>
+<p><span id="case4"></span></p>
+<h3 id="case4-m2324">case4 取子產業別曾經為"M2324 半導體業"的證券</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">sub_ind_c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;M2324 半導體業&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:35:56.933903]: INFO: get_universe_TW: Filters：{&#39;sub_ind_c&#39;: [&#39;M2324 半導體業&#39;]}
+
+
+Currently used TEJ API key call quota 42/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1663516/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;2302&#39;,
+ &#39;2303&#39;,
+ &#39;2329&#39;,
+ &#39;2330&#39;,
+ &#39;2337&#39;,
+ &#39;2338&#39;,
+ &#39;2342&#39;,
+ &#39;2344&#39;,
+ &#39;2351&#39;,
+ &#39;2363&#39;]
+</code></pre></div>
+<p><span id="case5"></span></p>
+<h3 id="case5-m2324-semiconductorm2325-computer-and-peripheral-equipment">case5 取子產業別曾經為"M2324 Semiconductor"&amp;"M2325 Computer and Peripheral Equipment"的證券</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">sub_ind_e</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;M2324 Semiconductor&#39;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                                    <span class="s1">&#39;M2325 Computer and Peripheral Equipment&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:36:01.704376]: INFO: get_universe_TW: Filters：{&#39;sub_ind_e&#39;: [&#39;M2324 Semiconductor&#39;, &#39;M2325 Computer and Peripheral Equipment&#39;]}
+
+
+Currently used TEJ API key call quota 43/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1679021/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;2301&#39;,
+ &#39;2302&#39;,
+ &#39;2303&#39;,
+ &#39;2305&#39;,
+ &#39;2324&#39;,
+ &#39;2329&#39;,
+ &#39;2330&#39;,
+ &#39;2331&#39;,
+ &#39;2337&#39;,
+ &#39;2338&#39;]
+</code></pre></div>
+<p><span id="case6"></span></p>
+<h3 id="case6-etffky">case6 取證券種類為"ETF"及"普通股"（不含F股或KY股）且掛牌於證券交易所的證券</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">stktp_c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ETF&#39;</span><span class="p">,</span> <span class="s1">&#39;普通股&#39;</span><span class="p">],</span> <span class="n">mkt</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TWSE&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:36:09.262084]: INFO: get_universe_TW: Filters：{&#39;stktp_c&#39;: [&#39;ETF&#39;, &#39;普通股&#39;], &#39;mkt&#39;: [&#39;TWSE&#39;]}
+
+
+Currently used TEJ API key call quota 44/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1705929/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;0050&#39;,
+ &#39;0051&#39;,
+ &#39;0052&#39;,
+ &#39;0053&#39;,
+ &#39;0055&#39;,
+ &#39;0056&#39;,
+ &#39;0057&#39;,
+ &#39;006203&#39;,
+ &#39;006204&#39;,
+ &#39;006208&#39;]
+</code></pre></div>
+<p><span id="case7"></span></p>
+<h3 id="case7-ix000250">case7 取曾經為"IX0002"（台灣50指數）成份股的證券</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">idx_id</span><span class="o">=</span><span class="s1">&#39;IX0002&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:36:14.450108]: INFO: get_universe_TW: Filters：{&#39;idx_id&#39;: [&#39;IX0002&#39;]}
+
+
+Currently used TEJ API key call quota 45/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1885914/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;1101&#39;,
+ &#39;1216&#39;,
+ &#39;1301&#39;,
+ &#39;1303&#39;,
+ &#39;1326&#39;,
+ &#39;1402&#39;,
+ &#39;1590&#39;,
+ &#39;1605&#39;,
+ &#39;2002&#39;,
+ &#39;2207&#39;]
+</code></pre></div>
+<p><span id="case8"></span></p>
+<h3 id="case8-m1100-ix0006">case8 取主產業別曾經為"M1100 水泥工業"且為"IX0006"（台灣高股息指數）成份股的證券</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">main_ind_c</span><span class="o">=</span><span class="s1">&#39;M1100 水泥工業&#39;</span><span class="p">,</span> <span class="n">idx_id</span><span class="o">=</span><span class="s1">&#39;IX0006&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:36:17.542984]: INFO: get_universe_TW: Filters：{&#39;main_ind_c&#39;: &#39;M1100 水泥工業&#39;, &#39;idx_id&#39;: [&#39;IX0006&#39;]}
+
+
+Currently used TEJ API key call quota 45/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1885914/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;1102&#39;]
+</code></pre></div>
+<p><span id="case9"></span></p>
+<h3 id="case9-fky">case9 取非金融業的普通股（不含F股或KY股）</h3>
+<p><a href="#menu">Return to Examples Menu</a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># 僅顯示前10筆</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">get_universe</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">main_ind_c</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;一般產業&#39;</span><span class="p">]</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>             <span class="p">,</span> <span class="n">stktp_c</span><span class="o">=</span><span class="s1">&#39;普通股&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[2024-03-13 02:36:23.861031]: INFO: get_universe_TW: Filters：{&#39;main_ind_c&#39;: [&#39;一般產業&#39;], &#39;stktp_c&#39;: &#39;普通股&#39;}
+
+
+Currently used TEJ API key call quota 48/9223372036854775807 (0.0%)
+Currently used TEJ API key data quota 1887612/9223372036854775807 (0.0%)
+
+
+
+
+
+[&#39;1101&#39;,
+ &#39;1102&#39;,
+ &#39;1103&#39;,
+ &#39;1104&#39;,
+ &#39;1108&#39;,
+ &#39;1109&#39;,
+ &#39;1110&#39;,
+ &#39;1201&#39;,
+ &#39;1203&#39;,
+ &#39;1210&#39;]
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Universe%20Analysis%EF%BC%8Dusing%20get_universe/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Universe Analysis－using get universe">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Universe Analysis－using get universe
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; TEJ/All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/tejtw" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1M480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2m-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3m-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/showcase/%E5%8F%B0%E7%81%A3%E7%B6%93%E6%BF%9F%E6%96%B0%E5%A0%B1-tej-?originalSubdomain=tw" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3M447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/your-twitter-handle" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" >
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "navigation.expand", "navigation.indexes", "content.tabs.link", "content.tooltips", "content.code.copy", "content.code.select", "content.action.edit", "content.action.view", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
